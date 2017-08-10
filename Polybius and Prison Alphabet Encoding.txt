@@ -1,0 +1,177 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace IB2
+{
+    class Program
+    {
+
+        public static void Polibiy(string slovo)
+        {
+            string[,] Rus = { {"Àà", "Áá", "Ââ", "Ãã", "Ää"}, 
+                                  {"Åå", "Ææ", "Çç", "Èè", "Éé"}, 
+                                  {"Êê", "Ëë", "Ìì", "Íí", "Îî"},
+                                  {"Ïï", "Ðð", "Ññ", "Òò", "Óó"},  
+                                  {"Ôô", "Õõ", "Öö", "×÷", "Øø"},
+                                  {"Ùù", "Úú", "Ûû", "Üü", "Ýý"},
+                                  {"Þþ", "ßÿ", "!!", ",,", ".."}};
+
+            string[,] Lat = { {"Aa", "Bb", "Cc", "Dd", "Ee"}, 
+                                  {"Ff", "Gg", "Hh", "Ii", "Jj"}, 
+                                  {"Kk", "Ll", "Mm", "Nn", "Oo"},
+                                  {"Pp", "Qq", "Rr", "Ss", "Tt"},  
+                                  {"Uu", "Vv", "Ww", "Xx", "Yy"},
+                                  {"Zz", "..", ",,", "!!", "??"},};
+
+            Console.WriteLine(ÇPolybius cipher:È);
+
+            //for russian alphabet
+            for (int a = 0; a < slovo.Length; a++)
+            {
+                for (int i = 0; i < 6; i++)
+                {
+                    for (int j = 0; j < 5; j++)
+                    {
+                        if ((slovo[a] == Rus[i, j][0]) || (slovo[a] == Rus[i, j][1]))
+                        {
+                            if (i + 1 > 6)
+                                Console.Write("{0}{1} ", i, j + 1);
+                            else
+                            Console.Write("{0}{1} ", i + 1, j + 1);
+                        }
+                    }
+                }
+            //Äor latin alphabet
+               for (int i = 0; i < 5; i++)
+                {
+                    for (int j = 0; j < 5; j++)
+                    {
+                        if ((slovo[a] == Lat[i, j][0]) || (slovo[a] == Lat[i, j][1]))
+                        {
+                            if (i + 1 > 5)
+                                Console.Write("{0}{1} ", i, j + 1);
+                            else
+                                Console.Write("{0}{1} ", i + 1, j + 1);
+                        }
+                    }
+                }
+
+
+            }
+        }
+
+
+        public static void Tyremn_Shifr(string slovo)
+        {
+            string[,] Rus = { {"Àà", "Áá", "Ââ", "Ãã", "Ää"}, 
+                                  {"Åå", "Ææ", "Çç", "Èè", "Éé"}, 
+                                  {"Êê", "Ëë", "Ìì", "Íí", "Îî"},
+                                  {"Ïï", "Ðð", "Ññ", "Òò", "Óó"},  
+                                  {"Ôô", "Õõ", "Öö", "×÷", "Øø"},
+                                  {"Ùù", "Úú", "Ûû", "Üü", "Ýý"},
+                                  {"Þþ", "ßÿ", "!!", ",,", ".."}};
+
+            string[,] Lat = { {"Aa", "Bb", "Cc", "Dd", "Ee"}, 
+                                  {"Ff", "Gg", "Hh", "Ii", "Jj"}, 
+                                  {"Kk", "Ll", "Mm", "Nn", "Oo"},
+                                  {"Pp", "Qq", "Rr", "Ss", "Tt"},  
+                                  {"Uu", "Vv", "Ww", "Xx", "Yy"},
+                                  {"Zz", "..", ",,", "!!", "??"},};
+
+            Console.WriteLine(ÇPrison cipher:È);
+
+            //for russian alphabet
+            int x = 0;
+            for (int a = 0; a < slovo.Length; a++)
+            {
+                for (int i = 0; i < 6; i++)
+                {
+                    for (int j = 0; j < 5; j++)
+                    {
+                        if ((slovo[a] == Rus[i, j][0]) || (slovo[a] == Rus[i, j][1]))
+                        {
+                            if (i==6)
+                                //x = i-1;
+                                x = i ;
+                            else
+                                // x = i+1;
+                                x = i ;
+                            int y = j;
+                            while (x != -1)
+                            {
+                                Console.Write(".");
+                                Console.Beep(800, 700);
+                                x--;
+                            }
+                            Console.Beep(37, 600);
+                            Console.Write(" ");
+                            while (y != -1)
+                            {
+                                Console.Write(".");
+                                Console.Beep(800, 700);
+                                y--;
+                            }
+                            Console.Beep(37, 1500);
+                            Console.Write(" ");
+                        }
+                    }
+                }
+            }
+
+
+            //for latin alphabet
+            for (int a = 0; a < slovo.Length; a++)
+            {
+                for (int i = 0; i < 6; i++)
+                {
+                    for (int j = 0; j < 5; j++)
+                    {
+                        if ((slovo[a] == Lat[i, j][0]) || (slovo[a] == Lat[i, j][1]))
+                        {
+                            if (i == 5)
+                                //x = i-1;
+                                x = i;
+                            else
+                                // x = i+1;
+                                x = i;
+                            int y = j;
+                            while (x != -1)
+                            {
+                                Console.Write(".");
+                                Console.Beep(400, 700);
+                                x--;
+                            }
+                            Console.Beep(37, 600);
+                            Console.Write(" ");
+                            while (y != -1)
+                            {
+                                Console.Write(".");
+                                Console.Beep(400, 700);
+                                y--;
+                            }
+                            Console.Beep(37, 2000);
+                            Console.Write(" ");
+                        }
+
+                    }
+                }
+            }
+        }
+                      
+        static void Main(string[] args)
+        {
+
+            Console.Clear();
+            Console.WriteLine(ÇEnter word:È);
+            string text = Console.ReadLine();
+            Polibiy(text);
+            Console.WriteLine();
+            Tyremn_Shifr(text);
+
+            Console.ReadKey();
+        }
+    }
+}
